@@ -28,6 +28,16 @@ body {
       font-weight: 200;
       margin: 20px 0;
     }
+    table {
+      text-align: center;
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      font-family: 'Poppins', sans-serif;
+      background: #222;
+      color: #f0f0f0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    } 
     h3 {
       font-size: 1.5rem;
       font-weight: 200;
