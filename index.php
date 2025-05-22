@@ -21,7 +21,7 @@
     include 'header.php';
   ?>
   <main>
-    <h2>Welcome to the Student Management System</h2>
+    <h2>Student List</h2>
       <table>
         <tr>
           <th>Student ID</th>
