@@ -1,3 +1,13 @@
+<?php
+  session_start();
+  require('database.php');
+  $queryStudents = 'SELECT * FROM students';
+  $statement1 = $db->prepare($queryStudents);
+  $statement1->execute();
+  $students = $statement1->fetchAll();
+  $statement1->closeCursor();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
