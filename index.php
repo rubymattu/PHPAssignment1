@@ -8,14 +8,22 @@
 </head>
 <body>
   <?php
-  // Include the header file
-  include 'header.php';
+    include 'header.php';
   ?>
   <main>
     <h2>Welcome to the Student Management System</h2>
+      <table>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Date of Birth</th>
+          <th>Email Address</th>
+          <th>Phone Number</th>
+          <th>Status</th>          
+        </tr>
+      </table>
   </main>
   <?php
-  // Include the footer file
   include 'footer.php';
   ?>  
 </body>
