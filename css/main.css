@@ -35,12 +35,11 @@ body {
       border-collapse: collapse;
       margin-top: 2rem;
       font-family: 'Poppins', sans-serif;
-      background: #222;
-      color: #f0f0f0;
+
     } 
       th, td {
         padding: 10px;
-        border: 1px solid #f0f0f0;
+        border: 1px solid #232323;
       }
       th {
         background: #eee;
@@ -51,8 +50,9 @@ body {
       td {
         font-size: 1rem;
         font-weight: 200;
-        text-align: left;
-        padding: 15px 20px;
+        padding: 15px 10px;
+        background: #f9f8f8;
+        color: #222;
       }
       footer {
         background: #222;
