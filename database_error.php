@@ -20,7 +20,7 @@
     <p>The database must be installed.</p>
     <p>MySQL must be running.</p>
     <p>Error message: <?php echo $_SESSION['database_error']; ?></p>
-    <p><a href='index.php'>View Contact List</a></p>
+    <p><a href='index.php'>View Student List</a></p>
   </main>
   <?php
     include 'footer.php';

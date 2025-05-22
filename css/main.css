@@ -54,14 +54,14 @@ body {
         background: #f9f8f8;
         color: #222;
       }
-      footer {
-        background: #222;
-      }
-    h3 {
-      font-size: 1.1rem;
-      font-weight: 200;
-      margin: 20px 0;
-      position: fixed;
-      bottom: 10px;
-      left: calc(50% - 100px);
+    main > p > a {
+      color: #f0f0f0;
     }
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 200;
+    margin: 20px 0;
+    position: fixed;
+    bottom: 10px;
+    left: calc(50% - 100px);
+  }
