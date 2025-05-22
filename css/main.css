@@ -6,8 +6,8 @@
 }
 body {
   font-family: 'Poppins', sans-serif;
-  background: #333;
-  color: #f0f0f0;
+  background: #ccc;
+  color: #444;
   text-align: center;
   padding: 100px 200px;
 }
@@ -55,7 +55,7 @@ body {
         color: #222;
       }
     main > p > a {
-      color: #f0f0f0;
+      color: #fff;
     }
   h3 {
     font-size: 1.1rem;
