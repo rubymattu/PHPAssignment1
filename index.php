@@ -23,7 +23,7 @@
 
   <!-- Delete Confirmation Popup -->
   <div id="deletePopup">
-    <p id="deleteConfirm">Are you sure you want to delete this student?</p>
+    <p>Are you sure you want to delete this student?</p>
     <form id="popupDeleteForm" action="delete_student.php" method="post">
       <input type="hidden" name="studentID" id="popupStudentID" />
       <input type="submit" value="Yes, Delete" id="delete" />

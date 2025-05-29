@@ -21,8 +21,9 @@
     include 'header.php';
   ?>
   <main>
+    <h2>Add New Student</h2>
     <form action="add_student.php" method="post">
-      <h2>Add New Student</h2>
+      
       <label for="firstName">First Name:</label>
       <input type="text" id="firstName" name="firstName" required><br>
       
@@ -43,8 +44,7 @@
       <input type="radio" name="status" value="Pending" />Pending<br />
       
       <div id="buttons">
-        <label for="submit">&nbsp;</label>
-        <input type="submit" value="Save Contact" id="submit">
+        <input type="submit" value="Add Student" id="submit">
       </div>
       </form>
       <p><a href='index.php'>Back to Student List</a></p>

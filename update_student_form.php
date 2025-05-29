@@ -1,0 +1,61 @@
+<?php
+  require('database.php');
+
+  $studentID = filter_input(INPUT_POST, 'studentID', FILTER_VALIDATE_INT);
+
+  $queryStudents = 'SELECT * FROM students WHERE studentID = :studentID';
+  $statement = $db->prepare($queryStudents);
+  $statement->bindValue(':studentID', $studentID);
+  $statement->execute();
+  $student = $statement->fetch();
+  $statement->closeCursor();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Manager - Update Student Info</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+  <?php
+    include 'header.php';
+  ?>
+  <main>
+    <h2>Update Student Information</h2>
+    <form action="update_student.php" method="post">
+
+      <input type="hidden" name="studentID" value="<?php echo $student['studentID']; ?>">
+
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required value="<?php echo $student['firstName']; ?>"><br>
+      
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required value="<?php echo $student['lastName']; ?>"><br>
+      
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required value="<?php echo $student['dob']; ?>"><br>
+      
+      <label for="emailAddress">Email Address:</label>
+      <input type="email" id="emailAddress" name="emailAddress" required value="<?php echo $student['emailAddress']; ?>"><br>
+      
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" value="<?php echo $student['phoneNumber']; ?>"><br>
+      
+      <label for="status">Status:</label>
+      <input type="radio" name="status" value="Enrolled" <?php echo ($student['status'] == 'Enrolled') ? 'checked' : ''; ?>/>Enrolled
+      <input type="radio" name="status" value="Pending" <?php echo ($student['status'] == 'Pending') ? 'checked' : ''; ?>/>Pending<br />
+      
+      <div id="buttons">
+        <input type="submit" value="Update Info" id="submit">
+      </div>
+      </form>
+      <p><a href='index.php'>Back to Student List</a></p>
+  </main>
+  <?php
+  include 'footer.php';
+  ?>  
+</body>
+</html>
