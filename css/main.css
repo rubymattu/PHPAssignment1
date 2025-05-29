@@ -37,7 +37,7 @@ h2 {
   font-weight: 500;
 }
 
-h3 {
+h5 {
   font-weight: 100;
   position: fixed;
   bottom: 20px;
@@ -71,7 +71,6 @@ input[type="date"] {
   border-radius: 4px;
 }
 
-/* Radio buttons inline */
 input[type="radio"] {
   margin-left: 10px;
   margin-right: 4px;
@@ -82,7 +81,7 @@ input[type="radio"] {
 }
 
 input[type="submit"], #button {
-  width: 8em;
+  width: 6.5em;
   background-color: #1B1B1B;
   color: white;
   border: none;
@@ -112,7 +111,7 @@ table {
 
 th, td {
   text-align: left;
-  padding: 0.75em;
+  padding: 0.3em 1em;
   border: 1px solid #ddd;
 }
 
@@ -125,8 +124,8 @@ th {
 a {
   color: #0d81ed;
   text-decoration: none;
-  font-size: 1.2em;
-  font-weight: 500;
+  font-size: 1em;
+  font-weight: 300;
 }
 
 a:hover {
