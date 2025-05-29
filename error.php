@@ -14,11 +14,11 @@
   <?php
     include 'header.php';
   ?>
-  <main>
-    <h2>Error!!!</h2>
-    <p><?php echo $_SESSION['error'] ?></p>
-    <p><a href='add_student_form.php'>Add New Student</p>
-    <p><a href='index.php'>View Student list</a></p>
+  <main style="width: 40%;">
+    <h2 style="padding-bottom: 5px;">Error!!!</h2>
+    <p style="color: #C21807;"><?php echo $_SESSION['error'] ?></p>
+    <a href='add_student_form.php'>Add New Student</a><br><br>
+    <a href='index.php'>View Student list</a>
   </main>
   <?php
   include 'footer.php';

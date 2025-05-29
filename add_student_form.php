@@ -20,10 +20,13 @@
   <?php
     include 'header.php';
   ?>
-  <main>
+  <main style="width: 60%;">
     <h2>Add New Student</h2>
-    <form action="add_student.php" method="post">
-      
+    <form action="add_student.php" method="post" enctype="multipart/form-data">
+
+      <label for="image">Upload Image:</label>
+      <input type="file" name="file1"><br>
+
       <label for="firstName">First Name:</label>
       <input type="text" id="firstName" name="firstName" required><br>
       

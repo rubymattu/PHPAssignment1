@@ -23,7 +23,7 @@
   <?php
     include 'header.php';
   ?>
-  <main>
+  <main style="width: 60%;">
     <h2>Update Student Information</h2>
     <form action="update_student.php" method="post">
 

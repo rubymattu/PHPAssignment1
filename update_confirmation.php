@@ -13,9 +13,9 @@
   <?php
     include 'header.php';
   ?>
-  <main>
-    <h2>Update Confirmation</h2>
-    <p>Thank you, <?php echo $_SESSION['fullName']; ?> for updating your student information.</p>
+  <main style="width: 40%;">
+    <h2 style="padding-bottom: 5px;">Update Confirmation</h2>
+    <p style="color: #50C878;">Thank you <?php echo $_SESSION['fullName']; ?>!! for updating your student information.</p>
     <a href='index.php'>View Student list</a>
   </main>
   <?php

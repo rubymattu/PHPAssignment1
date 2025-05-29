@@ -16,7 +16,7 @@ body {
 /* Main Layout */
 main {
   display: block;
-  width: 80%;
+  width: 90%;
   margin: 2em auto;
   padding: 1.5em;
   background-color: #fff;
@@ -34,6 +34,7 @@ h1 {
 }
 h2 {
   font-weight: 500;
+  padding-bottom: 30px;
 }
 
 h5 {
@@ -52,7 +53,6 @@ p {
 /* Forms */
 form {
   text-align: center;
-  margin-top: 20px;
 }
 
 label {
@@ -61,6 +61,15 @@ label {
   margin: 0.5em 0;
   text-align: left;;
   vertical-align: top;
+}
+
+input[type="file"]::file-selector-button {
+  background: #0095ff;
+  color: #fff;
+  border: none;
+  padding: 0.6em 1em;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 input[type="text"],

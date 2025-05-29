@@ -34,6 +34,7 @@
   <h2>Student List</h2>
   <table>
     <tr>
+      <th>Photo</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Date of Birth</th>
@@ -45,6 +46,7 @@
     </tr>
     <?php foreach ($students as $student): ?>
       <tr>
+        <td><img src="<?php echo htmlspecialchars('./images/' . $student['imageName']); ?>" alt="<?php echo htmlspecialchars('./images/' . $student['imageName']); ?>" style="width:auto; height:50px;" /></td>
         <td><?php echo $student['firstName']; ?></td>
         <td><?php echo $student['lastName']; ?></td>
         <td><?php echo $student['dob']; ?></td>
@@ -60,7 +62,7 @@
         <td>
           <form class="deleteForm" method="post">
             <input type="hidden" name="studentID" value="<?php echo $student['studentID']; ?>" />
-            <input type="submit" class="deleteBtn" value="Delete" />
+            <input type="submit" class="deleteBtn" value="Delete" id="delete"/>
           </form>
         </td>
       </tr>
