@@ -24,14 +24,12 @@
         <input type="text" name="user_name" required><br>
         <label for="password">Password:</label>
         <input type="password" name="password" required><br>
-      </div> 
-      
+      </div>             
       <div id="buttons">
-        <label for="submit">&nbsp;</label>
         <input type="submit" value="Register" id="submit">
       </div>
-
     </form>
+    <a href='login_form.php'>Back to Login page</a></p>
   </main>
   <?php
   // Include the footer file

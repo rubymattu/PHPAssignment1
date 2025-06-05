@@ -29,12 +29,11 @@
       </div> 
 
       <div id="buttons">
-        <label for="submit">&nbsp;</label>
         <input type="submit" value="Login" id="submit">
       </div>
 
     </form>
-    <p id='registerLink'>Not registered yet?<a href='register_contact_form.php'>Register</a></p>
+    <p id='registerLink'>Not registered yet?<a href='register_student_form.php'>Register</a></p>
 
   </main>
   <?php

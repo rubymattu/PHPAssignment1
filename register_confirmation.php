@@ -18,9 +18,9 @@
   // Include the header file
   include 'header.php';
   ?>
-  <main id='login'>
+  <main style="width: 40%;">
     <h2>Registration Confirmation</h2>
-    <p>Thank you, <?php echo $_SESSION['userName']; ?> for registering student information.</p>
+    <p style="color: #50C878;">Thank you, <?php echo $_SESSION['userName']; ?> for registering student information.</p>
     <p>You are Logged in may proceed to the student list.</p>
     <p><a href='index.php'>Back to home</a></p>
 

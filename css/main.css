@@ -51,8 +51,8 @@ h2 {
   padding: 15px 10px;
 }
 #name {
-  font-size: 1.3em;
-  color:#000080;
+  font-size: 1.1em;
+  color:#5f5f60;
 }
 h5 {
   font-weight: 100;
@@ -112,6 +112,7 @@ input[type="submit"], #button {
   padding: 0.6em;
   border-radius: 4px;
   cursor: pointer;
+  margin: 0 auto;
 
 }
 
@@ -120,6 +121,7 @@ input[type="submit"]:hover, #button:hover {
 }
 #submit {
   background: #1B1B1B;
+  margin: 25px auto;
 }
 
 /* Clear floats */
@@ -165,6 +167,7 @@ a {
   text-decoration: none;
   font-size: 1em;
   font-weight: 300;
+  padding: 0 20px;
 }
 
 a:hover {

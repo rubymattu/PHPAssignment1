@@ -43,7 +43,7 @@
 
   <div id="top">
       <h2>Student List</h2><br>
-      <p id="greeting">Welcome, <span id="name"><?php echo $_SESSION['userName']; ?></span></p>
+      <p id="greeting">Welcome <span id="name"><?php echo $_SESSION['userName']; ?> !</span></p>
       <div id="topRight">       
         <a href="logout.php" id="logout">Log Out</a>  
       </div>   
