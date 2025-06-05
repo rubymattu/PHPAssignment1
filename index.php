@@ -1,5 +1,11 @@
 <?php
   session_start();
+
+  if (!isset($_SESSION['isLoggedIn'])) {
+  header('Location: login_form.php');
+  die();
+}
+
   require('database.php');
   $queryStudents = 'SELECT * FROM students';
   $statement1 = $db->prepare($queryStudents);
@@ -32,9 +38,9 @@
   </div>
 
   <div id="top">
-      <h2>Student List</h2>
-      <div id="topRight">
-        <p>Welcome, <span id="name"><?php echo $_SESSION['userName']; ?></span></p> 
+      <h2>Student List</h2><br>
+      <p id="greeting">Welcome, <span id="name"><?php echo $_SESSION['userName']; ?></span></p>
+      <div id="topRight">       
         <a href="logout.php" id="logout">Log Out</a>  
       </div>   
     </div>

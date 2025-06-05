@@ -36,9 +36,9 @@ h2 {
   font-weight: 500;
   padding-bottom: 30px;
 }
-#top > h2 {
+#top > h2, #top > #greeting {
   float:left;
-  padding: 0 50px;
+  padding: 5px 50px;
 }
 #topRight {
   float: right;
@@ -47,6 +47,8 @@ h2 {
 #topRight > a {
   color: #c40404;
   font-size: .9em;
+  font-weight: 500;
+  padding: 15px 10px;
 }
 #name {
   font-size: 1.3em;
