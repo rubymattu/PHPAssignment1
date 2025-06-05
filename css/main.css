@@ -90,7 +90,8 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="date"],
-input[type="password"] {
+input[type="password"],
+select {
   width: 250px;
   padding: 0.4em;
   margin-bottom: 0.8em;
@@ -195,4 +196,7 @@ a:hover {
     }
     #delete:hover {
       background: #0056b3;
+    }
+    #deleteConfirm {
+      padding-bottom: 40px;
     }

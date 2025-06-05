@@ -7,7 +7,11 @@
 }
 
   require('database.php');
-  $queryStudents = 'SELECT * FROM students';
+  $queryStudents = '
+  SELECT students.*, studentDept.deptName
+  FROM students
+  JOIN studentDept ON students.deptID = studentDept.deptID
+';
   $statement1 = $db->prepare($queryStudents);
   $statement1->execute();
   $students = $statement1->fetchAll();
@@ -29,7 +33,7 @@
 
   <!-- Delete Confirmation Popup -->
   <div id="deletePopup">
-    <p>Are you sure you want to delete this student?</p>
+    <p id="deleteConfirm">Are you sure you want to delete this student?</p>
     <form id="popupDeleteForm" action="delete_student.php" method="post">
       <input type="hidden" name="studentID" id="popupStudentID" />
       <input type="submit" value="Yes, Delete" id="delete" />
@@ -49,6 +53,7 @@
       <th>Photo</th>
       <th>First Name</th>
       <th>Last Name</th>
+      <th>Department</th>
       <th>Date of Birth</th>
       <th>Email Address</th>
       <th>Phone Number</th>
@@ -61,6 +66,7 @@
         <td><img src="<?php echo htmlspecialchars('./images/' . $student['imageName']); ?>" alt="<?php echo htmlspecialchars('./images/' . $student['imageName']); ?>" style="width:auto; height:50px;" /></td>
         <td><?php echo $student['firstName']; ?></td>
         <td><?php echo $student['lastName']; ?></td>
+        <td><?php echo $student['deptName']; ?></td>
         <td><?php echo $student['dob']; ?></td>
         <td><?php echo $student['emailAddress']; ?></td>
         <td><?php echo $student['phoneNumber']; ?></td>

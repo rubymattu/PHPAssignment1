@@ -1,11 +1,12 @@
 <?php
   session_start();
   require('database.php');
-  $queryStudents = 'SELECT * FROM students';
-  $statement1 = $db->prepare($queryStudents);
-  $statement1->execute();
-  $students = $statement1->fetchAll();
-  $statement1->closeCursor();
+
+  $queryDept = 'SELECT * FROM studentDept';
+  $statement = $db->prepare($queryDept);
+  $statement->execute();
+  $depts = $statement->fetchAll();
+  $statement->closeCursor();
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +33,16 @@
       
       <label for="lastName">Last Name:</label>
       <input type="text" id="lastName" name="lastName" required><br>
+
+      <label for="deptID">Department:</label>
+        <select name="deptID" required>
+          <option value="">--Select Department--</option>
+          <?php foreach ($depts as $dept): ?>
+            <option value="<?php echo $dept['deptID']; ?>">
+              <?php echo htmlspecialchars($dept['deptName']); ?>
+            </option>
+          <?php endforeach; ?>
+        </select><br>
       
       <label for="dob">Date of Birth:</label>
       <input type="date" id="dob" name="dob" required><br>

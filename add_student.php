@@ -25,6 +25,7 @@
   $imageName = $_FILES['file1']['name'];
   $firstName = filter_input(INPUT_POST, 'firstName');
   $lastName = filter_input(INPUT_POST, 'lastName');
+  $deptID = filter_input(INPUT_POST, 'deptID');
   $dob = filter_input(INPUT_POST, 'dob');
   $emailAddress = filter_input(INPUT_POST, 'emailAddress');
   $phoneNumber = filter_input(INPUT_POST, 'phoneNumber');
@@ -46,7 +47,7 @@
     }
   }
 
-  if ($firstName == null || $lastName == null || $dob == null || $emailAddress == null || 
+  if ($firstName == null || $lastName == null || !$deptID || $dob == null || $emailAddress == null || 
       $phoneNumber == null || $status == null) {
     $_SESSION['error'] = 'Fill all the required fields.';
     header('Location: error.php');
@@ -55,13 +56,14 @@
     $data = [':imageName' => $imageName,
               ':firstName' => $firstName,
               ':lastName' => $lastName,
+              ':deptID' => $deptID,
               ':dob' => $dob,
               ':emailAddress' => $emailAddress,
               ':phoneNumber' => $phoneNumber,
               ':status' => $status];
     $query = 'INSERT into students
-                (imageName, firstName, lastName, dob, emailAddress, phoneNumber, status)
-                VALUES (:imageName, :firstName, :lastName, :dob, :emailAddress, :phoneNumber, :status)';
+                (imageName, firstName, lastName, deptID, dob, emailAddress, phoneNumber, status)
+                VALUES (:imageName, :firstName, :lastName, :deptID, :dob, :emailAddress, :phoneNumber, :status)';
     $statement = $db->prepare($query);
     $statement->execute($data);
     $statement->closeCursor();
