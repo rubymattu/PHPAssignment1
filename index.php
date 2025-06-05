@@ -31,7 +31,13 @@
     </form>
   </div>
 
-  <h2>Student List</h2>
+  <div id="top">
+      <h2>Student List</h2>
+      <div id="topRight">
+        <p>Welcome, <span id="name"><?php echo $_SESSION['userName']; ?></span></p> 
+        <a href="logout.php" id="logout">Log Out</a>  
+      </div>   
+    </div>
   <table>
     <tr>
       <th>Photo</th>
