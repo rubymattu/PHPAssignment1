@@ -15,7 +15,7 @@
   // Include the header file
   include 'header.php';
   ?>
-  <main id='login'>
+  <main style="width: 40%;">
     <h2>Login</h2>
     <form action="login.php" method="post" id="loginForm" enctype="multipart/form-data">
       

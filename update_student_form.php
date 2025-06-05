@@ -33,9 +33,12 @@
   ?>
   <main style="width: 60%;">
     <h2>Update Student Information</h2>
-    <form action="update_student.php" method="post">
+    <form action="update_student.php" method="post" enctype="multipart/form-data">
 
       <input type="hidden" name="studentID" value="<?php echo $student['studentID']; ?>">
+
+      <label>Photo:</label>
+      <input type="file" name="image"><br>
 
       <label for="firstName">First Name:</label>
       <input type="text" id="firstName" name="firstName" required value="<?php echo $student['firstName']; ?>"><br>
