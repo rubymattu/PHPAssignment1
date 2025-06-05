@@ -1,5 +1,6 @@
 <?php
   require('database.php');
+  require_once('image_util.php');
 
   $studentID = filter_input(INPUT_POST, 'studentID', FILTER_VALIDATE_INT);
 
@@ -9,6 +10,13 @@
   $statement->execute();
   $student = $statement->fetch();
   $statement->closeCursor();
+
+  // Get contact types for the dropdown
+  $queryDept = 'SELECT * FROM studentDept';
+  $deptStatement = $db->prepare($queryDept);
+  $deptStatement->execute();
+  $depts = $deptStatement->fetchAll();
+  $deptStatement->closeCursor();
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +42,15 @@
       
       <label for="lastName">Last Name:</label>
       <input type="text" id="lastName" name="lastName" required value="<?php echo $student['lastName']; ?>"><br>
+      
+      <label>Department:</label>
+      <select name="deptID" required>
+        <?php foreach ($depts as $dept): ?>
+          <option value="<?php echo $dept['deptID']; ?>" <?php if ($dept['deptID'] == $student['deptID']) echo 'selected'; ?>>
+            <?php echo htmlspecialchars($dept['deptName']); ?>
+          </option>
+        <?php endforeach; ?>
+      </select><br>
       
       <label for="dob">Date of Birth:</label>
       <input type="date" id="dob" name="dob" required value="<?php echo $student['dob']; ?>"><br>

@@ -126,6 +126,9 @@ input[type="submit"]:hover, #button:hover {
 br {
   clear: both;
 }
+p {
+  padding: 20px 0;
+}
 
 /* Table Styles */
 table {
