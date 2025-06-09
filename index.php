@@ -74,7 +74,7 @@
         <td>
 
           <form action="view_details.php" method="post">
-            <input type="hidden" name="contactID" value="<?php echo $contact['contactID']; ?>"/>
+            <input type="hidden" name="studentID" value="<?php echo $student['studentID']; ?>"/>
             <input type="submit" value="View" id="viewButton"/>
           </form>
 
