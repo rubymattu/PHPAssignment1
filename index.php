@@ -58,8 +58,8 @@
       <th>Email Address</th>
       <th>Phone Number</th>
       <th>Status</th>
-      <th>Update</th>
-      <th>Delete</th>
+      <th>Actions</th>
+      <!-- <th>Delete</th> -->
     </tr>
     <?php foreach ($students as $student): ?>
       <tr>
@@ -72,12 +72,17 @@
         <td><?php echo $student['phoneNumber']; ?></td>
         <td><?php echo $student['status']; ?></td>
         <td>
+
+          <form action="view_details.php" method="post">
+            <input type="hidden" name="contactID" value="<?php echo $contact['contactID']; ?>"/>
+            <input type="submit" value="View" id="viewButton"/>
+          </form>
+
           <form action="update_student_form.php" method="post">
             <input type="hidden" name="studentID" value="<?php echo $student['studentID']; ?>" />
             <input type="submit" value="Update" />
           </form>
-        </td>
-        <td>
+        
           <form class="deleteForm" method="post">
             <input type="hidden" name="studentID" value="<?php echo $student['studentID']; ?>" />
             <input type="submit" class="deleteBtn" value="Delete" id="delete"/>
