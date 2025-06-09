@@ -14,6 +14,20 @@ $dob = filter_input(INPUT_POST, 'dob');
 $deptID = filter_input(INPUT_POST, 'deptID', FILTER_VALIDATE_INT);
 $image = $_FILES['image'] ?? null;
 
+$image_dir = 'images/';
+$image_dir_path = getcwd() . DIRECTORY_SEPARATOR . $image_dir;
+
+// Get current contact to retrieve old image name
+$query = 'SELECT * FROM students WHERE studentID = :studentID';
+$statement = $db->prepare($query);
+$statement->bindValue(':studentID', $studentID);
+$statement->execute();
+$student = $statement->fetch();
+$statement->closeCursor();
+
+$oldImageName = $student['imageName'];
+$imageName = $oldImageName;
+
 // Basic validation
 if (
     $studentID === null || $firstName === null || $lastName === null || $emailAddress === null || 
@@ -50,35 +64,39 @@ $statement->closeCursor();
 
 $imageName = $currentImageName;  // Default to current image if no new uploaded
 
-if ($image && $image['error'] === UPLOAD_ERR_OK) {
-    // Delete old image files if they exist
-    $baseDir = 'images/';
-    if ($currentImageName) {
-        // Assuming the format is name_100.ext
-        $dotPos = strrpos($currentImageName, '_100.');
-        if ($dotPos !== false) {
-            $originalName = substr($currentImageName, 0, $dotPos) . substr($currentImageName, $dotPos + 4);
-            $original = $baseDir . $originalName;
-            $img100 = $baseDir . $currentImageName;
-            $img400 = $baseDir . substr($currentImageName, 0, $dotPos) . '_400' . substr($currentImageName, $dotPos + 4);
 
-            if (file_exists($original)) unlink($original);
-            if (file_exists($img100)) unlink($img100);
-            if (file_exists($img400)) unlink($img400);
+
+// Handle new image upload
+if ($image && $image['error'] === UPLOAD_ERR_OK) {
+    $filename = basename($image['name']);
+    $target = $image_dir_path . $filename;
+    move_uploaded_file($image['tmp_name'], $target);
+
+    // Process image
+    process_image($image_dir_path, $filename);
+
+    // Generate _100 name
+    $dot = strrpos($filename, '.');
+    $imageName100 = substr($filename, 0, $dot) . '_100' . substr($filename, $dot);
+    $imageName = $imageName100;
+
+    // Delete old images if not placeholder
+    if ($oldImageName !== 'placeholder_100.jpg') {
+        $base = substr($oldImageName, 0, strrpos($oldImageName, '_100'));
+        $ext = substr($oldImageName, strrpos($oldImageName, '.'));
+        $filesToDelete = [
+            $base . $ext,
+            $base . '_100' . $ext,
+            $base . '_400' . $ext
+        ];
+
+        foreach ($filesToDelete as $file) {
+            $path = $image_dir_path . DIRECTORY_SEPARATOR . $file;
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
     }
-
-    // Upload and process new image
-    $originalFilename = basename($image['name']);
-    $uploadPath = $baseDir . $originalFilename;
-    move_uploaded_file($image['tmp_name'], $uploadPath);
-    process_image($baseDir, $originalFilename);
-
-    // Save new _100 filename for database
-    $dotPosition = strrpos($originalFilename, '.');
-    $nameWithoutExt = substr($originalFilename, 0, $dotPosition);
-    $extension = substr($originalFilename, $dotPosition);
-    $imageName = $nameWithoutExt . '_100' . $extension;
 }
 
 // Update contact info in DB
