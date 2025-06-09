@@ -17,7 +17,7 @@ $image = $_FILES['image'] ?? null;
 $image_dir = 'images/';
 $image_dir_path = getcwd() . DIRECTORY_SEPARATOR . $image_dir;
 
-// Get current contact to retrieve old image name
+// Get current student to retrieve old image name
 $query = 'SELECT * FROM students WHERE studentID = :studentID';
 $statement = $db->prepare($query);
 $statement->bindValue(':studentID', $studentID);
@@ -99,7 +99,7 @@ if ($image && $image['error'] === UPLOAD_ERR_OK) {
     }
 }
 
-// Update contact info in DB
+// Update student info in DB
 $query = 'UPDATE students
     SET firstName = :firstName,
         lastName = :lastName,

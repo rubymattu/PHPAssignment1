@@ -17,7 +17,7 @@
   ?>
   <main style="width: 40%;">
     <h2>Register New Student</h2>
-    <form action="register_student.php" method="post" id="register_contact_form">    
+    <form action="register_student.php" method="post">    
       
       <div id="formData">
         <label for="firstName">Username:</label>
