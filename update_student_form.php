@@ -39,7 +39,7 @@
 
       <label>Photo:</label>
       <input type="file" name="image"><br>
-      <small>Current: <?php echo htmlspecialchars($contact['imageName']); ?></small><br>
+      <small>Current: <?php echo htmlspecialchars($student['imageName']); ?></small><br>
 
       <label for="firstName">First Name:</label>
       <input type="text" id="firstName" name="firstName" required value="<?php echo $student['firstName']; ?>"><br>
