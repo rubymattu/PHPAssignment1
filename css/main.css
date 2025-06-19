@@ -55,10 +55,11 @@ h2 {
   font-size: 1.1em;
   color:#5f5f60;
 }
-h5 {
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 20px;;
   font-weight: 100;
-  position: fixed;
-  bottom: 20px;
   border-top: 1px solid #1B1B1B;
   text-align: center;
   width: 100%;

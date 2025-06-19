@@ -7,11 +7,9 @@
 }
 
   require('database.php');
-  $queryStudents = '
-  SELECT students.*, studentDept.deptName
-  FROM students
-  JOIN studentDept ON students.deptID = studentDept.deptID
-';
+  $queryStudents = 'SELECT students.*, studentDept.deptName
+                    FROM students
+                    JOIN studentDept ON students.deptID = studentDept.deptID';
   $statement1 = $db->prepare($queryStudents);
   $statement1->execute();
   $students = $statement1->fetchAll();
@@ -59,7 +57,6 @@
       <th>Phone Number</th>
       <th>Status</th>
       <th>Actions</th>
-      <!-- <th>Delete</th> -->
     </tr>
     <?php foreach ($students as $student): ?>
       <tr>
